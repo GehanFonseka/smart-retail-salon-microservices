@@ -1,6 +1,6 @@
 # Author details (YOUR ACCOUNT)
-$AUTHOR_NAME="Gehan Fonseka"
-$AUTHOR_EMAIL="GehanFonseka@users.noreply.github.com"
+$AUTHOR_NAME="GehanFonseka"
+$AUTHOR_EMAIL="Gehanfonseka@gmail.com"
 
 # Files to modify (adjust if needed)
 $FILES = @(
@@ -43,7 +43,7 @@ while ($currentDate -le $endDate) {
         $env:GIT_AUTHOR_DATE=$fullDate
         $env:GIT_COMMITTER_DATE=$fullDate
 
-        git commit -m "System update - $($currentDate.ToString("yyyy-MM-dd"))"
+        git commit -m "Port update - $($currentDate.ToString("yyyy-MM-dd"))"
 
         Remove-Item Env:GIT_AUTHOR_DATE -ErrorAction SilentlyContinue
         Remove-Item Env:GIT_COMMITTER_DATE -ErrorAction SilentlyContinue
