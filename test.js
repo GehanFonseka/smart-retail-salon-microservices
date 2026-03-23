@@ -3,35 +3,37 @@ const { execSync } = require("child_process");
 const username = "Gehan Fonseka";
 const email = "GehanFonseka@users.noreply.github.com";
 
-// Dates you want commits on
-const dates = [
-  "2026-03-23",
-  "2026-03-24",
+const schedule = [
+  { date: "2026-03-23", commits: 3, label: "Project setup" },
+  { date: "2026-03-24", commits: 5, label: "Update Swagger" },
+  
 ];
 
-// Number of commits per day
-const commitsPerDay = 3;
-
-function run(command) {
-  execSync(command, { stdio: "inherit" });
+function run(cmd) {
+  execSync(cmd, { stdio: "inherit" });
 }
 
-dates.forEach(date => {
-  for (let i = 0; i < commitsPerDay; i++) {
-    const hour = 9 + i * 3; // spread commits across day
-    const fullDate = `${date}T${hour}:00:00+05:30`;
+schedule.forEach(day => {
+  for (let i = 0; i < day.commits; i++) {
 
-    console.log(`Creating commit for ${fullDate}`);
+    const hour = 9 + Math.floor(Math.random() * 8); // 9AM–5PM
+    const minute = Math.floor(Math.random() * 60);
+
+    const fullDate = `${day.date}T${hour}:${minute}:00+05:30`;
+
+    console.log(`Commit: ${day.label} at ${fullDate}`);
 
     run(`git add .`);
 
-    run(`git commit --allow-empty -m "Swagger update ${i + 1}" \
---date="${fullDate}" \
---author="${username} <${email}>"`);
+    run(`powershell -Command "$env:GIT_AUTHOR_DATE='${fullDate}'; $env:GIT_COMMITTER_DATE='${fullDate}'; git commit --allow-empty -m '${day.label} ${i+1}' --author='${username} <${email}>'"`);
   }
 });
 
-// push at end
-run("git push");
+try {
+  run("git push");
+} catch {
+  console.log("Force pushing...");
+  run("git push --force");
+}
 
-console.log("Done!");
+console.log("All commits done!");
