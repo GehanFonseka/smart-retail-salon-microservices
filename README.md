@@ -46,18 +46,6 @@ http://localhost:8080/customers → Customer Service
 
 ---
 
-## 📁 Project Structure
-
-microservices-project/
-├── product-service
-├── customer-service
-├── order-service
-├── salon-service
-├── appointment-service
-├── payment-service
-└── api-gateway
-
----
 
 ## ⚙️ Technologies Used
 
@@ -116,11 +104,6 @@ http://localhost:8080/orders
 
 ---
 
-## 📸 Screenshots
-
-(Add your Swagger and Gateway screenshots here)
-
----
 
 ## 👥 Team Contributions
 
