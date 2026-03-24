@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/products/**
+
+        - id: customer-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/customers/**
+
+        - id: order-service
+          uri: http://localhost:8084
+          predicates:
+            - Path=/orders/**
+
+        - id: salon-service
+          uri: http://localhost:8085
+          predicates:
+            - Path=/services/**
+
+        - id: appointment-service
+          uri: http://localhost:8086
+          predicates:
+            - Path=/appointments/**
+
+        - id: payment-service
+          uri: http://localhost:8087
+          predicates:
+            - Path=/payments/**
