@@ -5,6 +5,11 @@ spring:
   cloud:
     gateway:
       routes:
+
+        # ========================
+        # NORMAL ROUTES
+        # ========================
+
         - id: product-service
           uri: http://localhost:8082
           predicates:
@@ -34,3 +39,70 @@ spring:
           uri: http://localhost:8087
           predicates:
             - Path=/payments/**
+
+        # ========================
+        # SWAGGER ROUTES (FIXED)
+        # ========================
+
+        - id: product-docs
+          uri: http://localhost:8082
+          predicates:
+            - Path=/products/v3/api-docs
+          filters:
+            - RewritePath=/products/(?<segment>.*), /${segment}
+
+        - id: customer-docs
+          uri: http://localhost:8083
+          predicates:
+            - Path=/customers/v3/api-docs
+          filters:
+            - RewritePath=/customers/(?<segment>.*), /${segment}
+
+        - id: order-docs
+          uri: http://localhost:8084
+          predicates:
+            - Path=/orders/v3/api-docs
+          filters:
+            - RewritePath=/orders/(?<segment>.*), /${segment}
+
+        - id: salon-docs
+          uri: http://localhost:8085
+          predicates:
+            - Path=/services/v3/api-docs
+          filters:
+            - RewritePath=/services/(?<segment>.*), /${segment}
+
+        - id: appointment-docs
+          uri: http://localhost:8086
+          predicates:
+            - Path=/appointments/v3/api-docs
+          filters:
+            - RewritePath=/appointments/(?<segment>.*), /${segment}
+
+        - id: payment-docs
+          uri: http://localhost:8087
+          predicates:
+            - Path=/payments/v3/api-docs
+          filters:
+            - RewritePath=/payments/(?<segment>.*), /${segment}
+
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: Product Service
+        url: /products/v3/api-docs
+      - name: Customer Service
+        url: /customers/v3/api-docs
+      - name: Order Service
+        url: /orders/v3/api-docs
+      - name: Salon Service
+        url: /services/v3/api-docs
+      - name: Appointment Service
+        url: /appointments/v3/api-docs
+      - name: Payment Service
+        url: /payments/v3/api-docs
+
+    display-request-duration: true
+    doc-expansion: none
+    filter: true
