@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Retail & Salon Platform API Docs</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/swagger-ui/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/swagger-ui/custom.css" />
+    <link rel="icon" type="image/png" href="/webjars/swagger-ui/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/webjars/swagger-ui/favicon-16x16.png" sizes="16x16" />
+    <style>
+        html {
+            box-sizing: border-box;
+            overflow-y: scroll;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f7fb;
+        }
+    </style>
+</head>
+<body>
+<div id="swagger-ui"></div>
+
+<script src="/webjars/swagger-ui/swagger-ui-bundle.js"></script>
+<script src="/webjars/swagger-ui/swagger-ui-standalone-preset.js"></script>
+<script>
+    window.onload = function () {
+        window.ui = SwaggerUIBundle({
+            dom_id: '#swagger-ui',
+            urls: [
+                { name: 'Smart Retail & Salon Platform', url: '/v3/api-docs' },
+                { name: 'Product Service', url: '/products/v3/api-docs' },
+                { name: 'Customer Service', url: '/customers/v3/api-docs' },
+                { name: 'Order Service', url: '/orders/v3/api-docs' },
+                { name: 'Salon Service', url: '/services/v3/api-docs' },
+                { name: 'Appointment Service', url: '/appointments/v3/api-docs' },
+                { name: 'Payment Service', url: '/payments/v3/api-docs' }
+            ],
+            "urls.primaryName": "Smart Retail & Salon Platform",
+            deepLinking: true,
+            displayRequestDuration: true,
+            docExpansion: "none",
+            filter: true,
+            showExtensions: true,
+            showCommonExtensions: true,
+            defaultModelsExpandDepth: -1,
+            defaultModelExpandDepth: 2,
+            tryItOutEnabled: true,
+            operationsSorter: "method",
+            tagsSorter: "alpha",
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIStandalonePreset
+            ],
+            layout: "StandaloneLayout"
+        });
+    };
+</script>
+</body>
+</html>

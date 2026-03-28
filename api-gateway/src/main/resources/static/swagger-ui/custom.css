@@ -1,0 +1,116 @@
+body {
+    background: #f4f7fb;
+}
+
+.swagger-ui .topbar {
+    background: linear-gradient(90deg, #0f172a, #1e293b);
+    border-bottom: 3px solid #38bdf8;
+    padding: 10px 0;
+}
+
+.swagger-ui .topbar::before {
+    content: "Smart Retail & Salon Platform";
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 24px;
+    margin-right: 24px;
+    display: inline-block;
+    letter-spacing: 0.4px;
+}
+
+.swagger-ui .topbar a,
+.swagger-ui .topbar .download-url-wrapper {
+    display: none !important;
+}
+
+.swagger-ui .info {
+    margin: 30px 0;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.swagger-ui .info .title {
+    color: #0f172a;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.swagger-ui .info .description {
+    color: #334155;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.swagger-ui .scheme-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    padding: 14px;
+    margin: 20px 0;
+}
+
+.swagger-ui .opblock-tag {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #dbeafe;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.05);
+}
+
+.swagger-ui .opblock-tag:hover {
+    background: #f8fbff;
+}
+
+.swagger-ui .opblock {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    margin-bottom: 14px;
+}
+
+.swagger-ui .opblock.opblock-get {
+    border-color: #10b981;
+}
+
+.swagger-ui .opblock.opblock-post {
+    border-color: #3b82f6;
+}
+
+.swagger-ui .opblock.opblock-put {
+    border-color: #f59e0b;
+}
+
+.swagger-ui .opblock.opblock-delete {
+    border-color: #ef4444;
+}
+
+.swagger-ui .responses-inner,
+.swagger-ui .opblock-section-header,
+.swagger-ui .model-box {
+    background-color: #ffffff;
+}
+
+.swagger-ui .btn.execute {
+    background: linear-gradient(90deg, #2563eb, #0ea5e9);
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.swagger-ui .btn.execute:hover {
+    background: linear-gradient(90deg, #1d4ed8, #0284c7);
+}
+
+.swagger-ui select {
+    border-radius: 10px !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+.swagger-ui input {
+    border-radius: 10px !important;
+}

@@ -5,56 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="243d1ead-a712-466b-8b2f-5761247ca8d1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/group24/microservices/api_gateway/LoggingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appointment-service/src/main/java/com/group24/microservices/appointment_service/config/LoggingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appointment-service/src/main/java/com/group24/microservices/appointment_service/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-service/src/main/java/com/group24/microservices/customer_service/config/LoggingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-service/src/main/java/com/group24/microservices/customer_service/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/group24/microservices/order_service/config/LoggingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/group24/microservices/order_service/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/group24/microservices/payment_service/config/LoggingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/group24/microservices/payment_service/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/com/group24/microservices/product_service/config/LoggingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/com/group24/microservices/product_service/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/salon-service/src/main/java/com/group24/microservices/salon_service/config/LoggingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/salon-service/src/main/java/com/group24/microservices/salon_service/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/group24/microservices/api_gateway/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/static/swagger-ui/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/static/swagger-ui/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-service/src/main/java/com/group24/microservices/appointment_service/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-service/src/main/java/com/group24/microservices/appointment_service/controller/AppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-service/src/main/java/com/group24/microservices/appointment_service/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-service/src/main/java/com/group24/microservices/appointment_service/model/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer-service/src/main/java/com/group24/microservices/customer_service/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/main/java/com/group24/microservices/customer_service/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer-service/src/main/java/com/group24/microservices/customer_service/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/main/java/com/group24/microservices/customer_service/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/group24/microservices/order_service/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/group24/microservices/order_service/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/group24/microservices/order_service/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/group24/microservices/order_service/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/group24/microservices/payment_service/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/group24/microservices/payment_service/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/group24/microservices/payment_service/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/group24/microservices/payment_service/model/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/.idea/product-service.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/src/main/java/com/group24/microservices/product_service/ProductServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/src/main/java/com/group24/microservices/product_service/controller/ProductController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/src/main/java/com/group24/microservices/product_service/model/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/src/test/java/com/group24/microservices/product_service/ProductServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/salon-service/src/main/java/com/group24/microservices/salon_service/controller/SalonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/salon-service/src/main/java/com/group24/microservices/salon_service/controller/SalonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/salon-service/src/main/java/com/group24/microservices/salon_service/model/ServiceItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/salon-service/src/main/java/com/group24/microservices/salon_service/model/ServiceItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/salon-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/salon-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +41,7 @@
   &quot;associatedIndex&quot;: 7,
   &quot;fromUser&quot;: false
 }</component>
+  <component name="ProjectId" id="3BYwzEuv8A1WjbotVPoOc5eGooS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -100,6 +56,7 @@
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.ProductServiceApplication.executor": "Run",
     "git-widget-placeholder": "main",
@@ -138,6 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774375327425</updated>
       <workItem from="1774375330092" duration="7231000" />
+      <workItem from="1774679576582" duration="5269000" />
     </task>
     <servers />
   </component>

@@ -41,7 +41,7 @@ spring:
             - Path=/payments/**
 
         # ========================
-        # SWAGGER ROUTES (FIXED)
+        # SWAGGER ROUTES
         # ========================
 
         - id: product-docs
@@ -86,10 +86,15 @@ spring:
           filters:
             - RewritePath=/payments/(?<segment>.*), /${segment}
 
-
 springdoc:
+  api-docs:
+    enabled: true
+
   swagger-ui:
+    path: /swagger-ui.html
     urls:
+      - name: Smart Retail & Salon Platform
+        url: /v3/api-docs
       - name: Product Service
         url: /products/v3/api-docs
       - name: Customer Service
@@ -103,6 +108,16 @@ springdoc:
       - name: Payment Service
         url: /payments/v3/api-docs
 
+    urls-primary-name: Smart Retail & Salon Platform
     display-request-duration: true
     doc-expansion: none
     filter: true
+    tags-sorter: alpha
+    operations-sorter: method
+    deep-linking: true
+    display-operation-id: false
+    default-models-expand-depth: -1
+    default-model-expand-depth: 2
+    show-extensions: true
+    show-common-extensions: true
+    try-it-out-enabled: true
