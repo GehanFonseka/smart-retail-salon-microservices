@@ -43,6 +43,13 @@ public class CustomerController {
         return null;
     }
 
+
+
+
+
+
+
+
     @DeleteMapping("/{id}")
     public String delete(@PathVariable int id) {
         customers.removeIf(c -> c.getId() == id);
