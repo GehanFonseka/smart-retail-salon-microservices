@@ -9,8 +9,6 @@ import java.util.*;
 @RequestMapping("/customers")
 public class CustomerController {
 
-
-
     private List<Customer> customers = new ArrayList<>();
 
     @GetMapping
