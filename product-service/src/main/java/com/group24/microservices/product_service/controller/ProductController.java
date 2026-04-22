@@ -1,6 +1,7 @@
 package com.group24.microservices.product_service.controller;
 
 import com.group24.microservices.product_service.model.Product;
+import com.group24.microservices.product_service.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
@@ -8,55 +9,70 @@ import java.util.*;
 @RequestMapping("/products")
 public class ProductController {
 
-    private List<Product> products = new ArrayList<>(
-            List.of(
-                    new Product(1, "Shirt", 2500, "Clothing"),
-                    new Product(2, "Shoes", 5000, "Footwear")
-            )
-    );
+    private final ProductRepository productRepository;
+
+    public ProductController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+        seedData();
+    }
 
     @GetMapping
     public List<Product> getAll() {
-        return products;
+        return productRepository.findAll();
     }
 
     @GetMapping("/{id}")
     public Product getById(@PathVariable int id) {
-        return products.stream()
-                .filter(p -> p.getId() == id)
-                .findFirst()
-                .orElse(null);
+        return productRepository.findById(id).orElse(null);
     }
 
     @PostMapping
     public Product create(@RequestBody Product p) {
-        products.add(p);
-        return p;
+        if (p.getId() <= 0) {
+            p.setId(nextId());
+        }
+
+        return productRepository.save(p);
     }
 
     @PutMapping("/{id}")
     public Product update(@PathVariable int id, @RequestBody Product updated) {
-        for (Product p : products) {
-            if (p.getId() == id) {
-                p.setName(updated.getName());
-                p.setPrice(updated.getPrice());
-                p.setCategory(updated.getCategory());
-                return p;
-            }
-        }
-        return null;
+        return productRepository.findById(id)
+                .map(existing -> {
+                    existing.setName(updated.getName());
+                    existing.setPrice(updated.getPrice());
+                    existing.setCategory(updated.getCategory());
+                    return productRepository.save(existing);
+                })
+                .orElse(null);
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable int id) {
-        products.removeIf(p -> p.getId() == id);
+        productRepository.deleteById(id);
         return "Deleted successfully";
     }
 
     @GetMapping("/search")
     public List<Product> search(@RequestParam String name) {
-        return products.stream()
+        return productRepository.findAll().stream()
                 .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))
                 .toList();
+    }
+
+    private int nextId() {
+        return productRepository.findAll().stream()
+                .mapToInt(Product::getId)
+                .max()
+                .orElse(0) + 1;
+    }
+
+    private void seedData() {
+        if (productRepository.count() == 0) {
+            productRepository.saveAll(List.of(
+                    new Product(1, "Shirt", 2500, "Clothing"),
+                    new Product(2, "Shoes", 5000, "Footwear")
+            ));
+        }
     }
 }

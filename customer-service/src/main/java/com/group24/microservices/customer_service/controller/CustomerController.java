@@ -1,6 +1,7 @@
 package com.group24.microservices.customer_service.controller;
 
 import com.group24.microservices.customer_service.model.Customer;
+import com.group24.microservices.customer_service.repository.CustomerRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -9,38 +10,41 @@ import java.util.*;
 @RequestMapping("/customers")
 public class CustomerController {
 
-    private List<Customer> customers = new ArrayList<>();
+    private final CustomerRepository customerRepository;
+
+    public CustomerController(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
     @GetMapping
     public List<Customer> getAll() {
-        return customers;
+        return customerRepository.findAll();
     }
 
     @GetMapping("/{id}")
     public Customer getById(@PathVariable int id) {
-        return customers.stream()
-                .filter(c -> c.getId() == id)
-                .findFirst()
-                .orElse(null);
+        return customerRepository.findById(id).orElse(null);
     }
 
     @PostMapping
     public Customer create(@RequestBody Customer c) {
-        customers.add(c);
-        return c;
+        if (c.getId() <= 0) {
+            c.setId(nextId());
+        }
+
+        return customerRepository.save(c);
     }
 
     @PutMapping("/{id}")
     public Customer update(@PathVariable int id, @RequestBody Customer updated) {
-        for (Customer c : customers) {
-            if (c.getId() == id) {
-                c.setName(updated.getName());
-                c.setEmail(updated.getEmail());
-                c.setPhone(updated.getPhone());
-                return c;
-            }
-        }
-        return null;
+        return customerRepository.findById(id)
+                .map(existing -> {
+                    existing.setName(updated.getName());
+                    existing.setEmail(updated.getEmail());
+                    existing.setPhone(updated.getPhone());
+                    return customerRepository.save(existing);
+                })
+                .orElse(null);
     }
 
 
@@ -52,14 +56,21 @@ public class CustomerController {
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable int id) {
-        customers.removeIf(c -> c.getId() == id);
+        customerRepository.deleteById(id);
         return "Customer deleted";
     }
 
     @GetMapping("/search")
     public List<Customer> search(@RequestParam String name) {
-        return customers.stream()
+        return customerRepository.findAll().stream()
                 .filter(c -> c.getName().toLowerCase().contains(name.toLowerCase()))
                 .toList();
+    }
+
+    private int nextId() {
+        return customerRepository.findAll().stream()
+                .mapToInt(Customer::getId)
+                .max()
+                .orElse(0) + 1;
     }
 }

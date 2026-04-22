@@ -1,6 +1,7 @@
 package com.group24.microservices.order_service.controller;
 
 import com.group24.microservices.order_service.model.Order;
+import com.group24.microservices.order_service.repository.OrderRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -9,43 +10,54 @@ import java.util.*;
 @RequestMapping("/orders")
 public class OrderController {
 
-    private List<Order> orders = new ArrayList<>();
+    private final OrderRepository orderRepository;
+
+    public OrderController(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
 
     @GetMapping
     public List<Order> getAll() {
-        return orders;
+        return orderRepository.findAll();
     }
 
     @GetMapping("/{id}")
     public Order getById(@PathVariable int id) {
-        return orders.stream()
-                .filter(o -> o.getId() == id)
-                .findFirst()
-                .orElse(null);
+        return orderRepository.findById(id).orElse(null);
     }
 
     @PostMapping
     public Order create(@RequestBody Order o) {
-        orders.add(o);
-        return o;
+        if (o.getId() <= 0) {
+            o.setId(nextId());
+        }
+
+        return orderRepository.save(o);
     }
 
     @PutMapping("/{id}")
     public Order update(@PathVariable int id, @RequestBody Order updated) {
-        for (Order o : orders) {
-            if (o.getId() == id) {
-                o.setProductName(updated.getProductName());
-                o.setTotalAmount(updated.getTotalAmount());
-                return o;
-            }
-        }
-        return null;
+        return orderRepository.findById(id)
+                .map(existing -> {
+                    existing.setCustomerId(updated.getCustomerId());
+                    existing.setProductName(updated.getProductName());
+                    existing.setTotalAmount(updated.getTotalAmount());
+                    return orderRepository.save(existing);
+                })
+                .orElse(null);
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable int id) {
-        orders.removeIf(o -> o.getId() == id);
+        orderRepository.deleteById(id);
         return "Order deleted";
+    }
+
+    private int nextId() {
+        return orderRepository.findAll().stream()
+                .mapToInt(Order::getId)
+                .max()
+                .orElse(0) + 1;
     }
 }
 // update 0 - 2026-03-25

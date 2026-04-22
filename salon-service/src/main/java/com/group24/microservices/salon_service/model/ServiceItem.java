@@ -1,7 +1,12 @@
 package com.group24.microservices.salon_service.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "services")
 public class ServiceItem {
 
+    @Id
     private int id;
     private String name;
     private String category;   // Hair, Spa, Facial

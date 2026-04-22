@@ -1,6 +1,11 @@
 package com.group24.microservices.customer_service.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "customers")
 public class Customer {
+    @Id
     private int id;
     private String name;
     private String email;

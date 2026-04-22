@@ -21,23 +21,20 @@ public class SwaggerConfig {
                         .description("""
                                 Unified API documentation for the Smart Retail & Salon Platform.
 
-                                This gateway provides a central entry point for all core platform services,
-                                including product, customer, order, salon, appointment, and payment management.
-                                Use the Swagger UI service selector to explore each microservice.
+                                This API Gateway aggregates documentation from all core platform microservices.
+                                Select a service from the dropdown menu to explore its full API documentation:
+
+                                • Customer Service: Manages customer profiles and accounts
+                                • Product Service: Manages product catalog and inventory
+                                • Order Service: Processes orders and order management
+                                • Salon Service: Manages salon service offerings
+                                • Appointment Service: Handles appointment booking and scheduling
+                                • Payment Service: Processes payments and transactions
                                 """))
                 .servers(List.of(
                         new Server()
                                 .url("http://localhost:8080")
-                                .description("API Gateway - Local Environment")
-                ))
-                .tags(List.of(
-                        new Tag().name("API Gateway").description("Central gateway for routing requests and exposing unified platform API documentation"),
-                        new Tag().name("Product Service").description("Manages product catalog, inventory data, and product-related operations"),
-                        new Tag().name("Customer Service").description("Handles customer profiles, customer information, and account-related operations"),
-                        new Tag().name("Order Service").description("Processes customer orders, order history, and order lifecycle operations"),
-                        new Tag().name("Salon Service").description("Manages salon service catalog, service details, and salon offerings"),
-                        new Tag().name("Appointment Service").description("Handles appointment booking, scheduling, and salon reservation management"),
-                        new Tag().name("Payment Service").description("Processes payments, transaction records, and payment-related operations")
-                ));
+                                .description("API Gateway - Local")));
     }
+
 }

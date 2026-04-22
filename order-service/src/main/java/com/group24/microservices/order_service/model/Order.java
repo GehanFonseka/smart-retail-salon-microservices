@@ -1,6 +1,11 @@
 package com.group24.microservices.order_service.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "orders")
 public class Order {
+    @Id
     private int id;
     private int customerId;
     private String productName;

@@ -1,7 +1,12 @@
 package com.group24.microservices.payment_service.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "payments")
 public class Payment {
 
+    @Id
     private int id;
     private int orderId;
     private double amount;

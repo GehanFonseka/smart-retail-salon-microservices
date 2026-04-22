@@ -1,8 +1,12 @@
 package com.group24.microservices.appointment_service.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "appointments")
 public class Appointment {
 
+    @Id
     private int id;
     private int customerId;
     private String customerName;

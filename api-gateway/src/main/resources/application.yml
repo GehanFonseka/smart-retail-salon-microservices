@@ -93,8 +93,6 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     urls:
-      - name: Smart Retail & Salon Platform
-        url: /v3/api-docs
       - name: Product Service
         url: /products/v3/api-docs
       - name: Customer Service
@@ -108,7 +106,7 @@ springdoc:
       - name: Payment Service
         url: /payments/v3/api-docs
 
-    urls-primary-name: Smart Retail & Salon Platform
+    urls-primary-name: Product Service
     display-request-duration: true
     doc-expansion: none
     filter: true
@@ -122,4 +120,3 @@ springdoc:
     show-common-extensions: true
     try-it-out-enabled: true
 
-// update 0 - 2026-03-24

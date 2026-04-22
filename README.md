@@ -26,12 +26,12 @@ Each functionality is implemented as an independent microservice and accessed th
 
 | Service             | Port | Description           |
 | ------------------- | ---- | --------------------- |
-| Customer Service    | 8081 | Manage customers      |
+| Customer Service    | 8083 | Manage customers      |
 | Product Service     | 8082 | Manage products       |
-| Order Service       | 8083 | Handle orders         |
-| Salon Service       | 8084 | Manage salon services |
-| Appointment Service | 8085 | Handle bookings       |
-| Payment Service     | 8086 | Process payments      |
+| Order Service       | 8084 | Handle orders         |
+| Salon Service       | 8085 | Manage salon services |
+| Appointment Service | 8086 | Handle bookings       |
+| Payment Service     | 8087 | Process payments      |
 | API Gateway         | 8080 | Central routing       |
 
 ---
@@ -74,7 +74,7 @@ http://localhost:8080/customers → Customer Service
 4. salon-service
 5. appointment-service
 6. payment-service
-7. api-gateway
+7. api-gateway (start this separately after the other services)
 
 ---
 
@@ -85,6 +85,8 @@ mvn spring-boot:run
 
 Repeat for all services.
 
+Start `api-gateway` last in a separate terminal so it can bind to port 8080 after the backend services are already running.
+
 ---
 
 ## 🧪 Testing
@@ -92,7 +94,7 @@ Repeat for all services.
 ### 🔹 Swagger (Direct Access)
 
 http://localhost:8082/swagger-ui.html
-http://localhost:8081/swagger-ui.html
+http://localhost:8083/swagger-ui.html
 
 ---
 
