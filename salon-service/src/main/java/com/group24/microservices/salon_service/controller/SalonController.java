@@ -23,6 +23,7 @@ public class SalonController {
         return serviceItemRepository.findAll();
     }
 
+
     // GET BY ID
     @GetMapping("/{id}")
     public ServiceItem getById(@PathVariable int id) {
