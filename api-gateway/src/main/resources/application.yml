@@ -91,7 +91,9 @@ springdoc:
     enabled: true
 
   swagger-ui:
-    path: /swagger-ui.html
+    path: /swagger-ui/webjars/swagger-ui/index.html
+    config-url: /v3/api-docs/swagger-config
+    disable-swagger-default-url: true
     urls:
       - name: Product Service
         url: /products/v3/api-docs
