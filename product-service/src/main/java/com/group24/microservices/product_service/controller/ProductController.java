@@ -61,6 +61,7 @@ public class ProductController {
                 .toList();
     }
 
+
     private int nextId() {
         return productRepository.findAll().stream()
                 .mapToInt(Product::getId)
